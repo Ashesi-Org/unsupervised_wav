@@ -18,7 +18,7 @@ cuda_installation
 # Install the NVIDIA CUDA Toolkit. This provides the compiler (nvcc) and 
 # libraries needed for GPU acceleration of deep learning frameworks.
 
-nvidia_drivers_installation
+gpu_drivers_installation
 # Install or update the proprietary NVIDIA GPU drivers to ensure hardware 
 # is correctly recognized and accessible by CUDA.
 
