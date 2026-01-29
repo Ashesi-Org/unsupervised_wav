@@ -15,6 +15,9 @@ Before running the project, ensure the following:
 * NVIDIA GPU with CUDA support
 * Python virtual environment (venv)
 
+## statement of ensuring that git is has been installed 
+sudo apt-get install git
+
 CUDA Version Requirement
 You must install a CUDA version that is compatible with your GPU and PyTorch version.
 Use the official NVIDIA CUDA archive to find the correct version for your system:

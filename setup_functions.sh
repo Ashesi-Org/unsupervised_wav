@@ -92,7 +92,7 @@ echo "Detected Python version: $PYTHON_VERSION"
 basic_dependencies(){
     sudo apt-get update
     # Install Python 3, pip, and essential development packages (for compiling C extensions)
-    sudo apt-get install -y python3 python3-pip python3-dev build-essential
+    sudo apt-get install -y python3 python3-pip python3-dev build-essential ninja
     sudo apt-get install autoconf automake cmake curl g++ git graphviz libatlas3-base libtool make pkg-config subversion unzip wget zlib1g-dev gfortran
     # sudo apt-get install python3.12-venv
     sudo apt update
@@ -104,13 +104,14 @@ basic_dependencies(){
 # This function installs the cuda version suited for your machine, please follow the link below to choose the right link that suites your machine 
 #URLS to cuda installation: https://developer.nvidia.com/cuda-toolkit-archive
 cuda_installation(){
+    
     wget https://developer.download.nvidia.com/compute/cuda/12.3.0/local_installers/cuda-repo-debian12-12-3-local_12.3.0-545.23.06-1_amd64.deb
     sudo dpkg -i cuda-repo-debian12-12-3-local_12.3.0-545.23.06-1_amd64.deb
     sudo cp /var/cuda-repo-debian12-12-3-local/cuda-*-keyring.gpg /usr/share/keyrings/
     sudo add-apt-repository contrib
     sudo apt-get update
     sudo apt-get -y install cuda-toolkit-12-3
-    
+
     echo 'export PATH=/usr/local/cuda/bin:${PATH}' >> ~/.bashrc
     echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH}' >> ~/.bashrc
     source ~/.bashrc
@@ -120,7 +121,6 @@ cuda_installation(){
 #Installation of gpu drivers and toolkit
 gpu_drivers_installation(){
  echo "--- Starting GPU Driver and Toolkit Installation ---"
-    
     # 1. Download Google Cloud GPU installation script
     echo "1. Downloading GCP GPU driver installation script..."
     curl -s -O https://raw.githubusercontent.com/GoogleCloudPlatform/compute-gpu-installation/main/linux/install_gpu_driver.py
@@ -186,8 +186,9 @@ install_pytorch_and_other_packages() {
 install_fairseq() {
     log "--- Installing fairseq ---"
     log "Activating virtual environment: $VENV_PATH"
-     pip install "pip==24.0"
     source "$VENV_PATH/bin/activate"
+     pip install "pip==24.0"
+    # source "$VENV_PATH/bin/activate"
 
     cd "$INSTALL_ROOT"
 
