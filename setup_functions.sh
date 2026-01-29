@@ -24,6 +24,7 @@ FLASHLIGHT_SEQ_ROOT="$INSTALL_ROOT/sequence"
 # Python version
 PYTHON_VERSION="3.10"  # Options: 3.7, 3.8, 3.9, 3.10
 
+
 # ==================== HELPER FUNCTIONS ====================
 
 # Log message with timestamp
@@ -92,7 +93,7 @@ echo "Detected Python version: $PYTHON_VERSION"
 basic_dependencies(){
     sudo apt-get update
     # Install Python 3, pip, and essential development packages (for compiling C extensions)
-    sudo apt-get install -y python3 python3-pip python3-dev build-essential ninja
+    sudo apt-get install -y python3 python3-pip python3-dev build-essential 
     sudo apt-get install autoconf automake cmake curl g++ git graphviz libatlas3-base libtool make pkg-config subversion unzip wget zlib1g-dev gfortran
     # sudo apt-get install python3.12-venv
     sudo apt update
@@ -112,8 +113,8 @@ cuda_installation(){
     sudo apt-get update
     sudo apt-get -y install cuda-toolkit-12-3
 
-    echo 'export PATH=/usr/local/cuda/bin:${PATH}' >> ~/.bashrc
-    echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH}' >> ~/.bashrc
+    echo 'export PATH=/usr/local/cuda-12.3//bin:${PATH}' >> ~/.bashrc
+    echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.3//lib64:${LD_LIBRARY_PATH}' >> ~/.bashrc
     source ~/.bashrc
 }
 
@@ -175,6 +176,7 @@ install_pytorch_and_other_packages() {
     # Install other required packages
     pip install "numpy<2" scipy tqdm sentencepiece soundfile librosa editdistance tensorboardX packaging soundfile
     pip install npy-append-array faiss-gpu h5py kaldi-io g2p_en
+    pip install ninja
     sudo apt install zsh
     sudo apt install yq
     python -c "import nltk; nltk.download('averaged_perceptron_tagger_eng')" # we install this to efficiently use the phonemizer G2p

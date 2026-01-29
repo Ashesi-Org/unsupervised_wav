@@ -21,7 +21,32 @@ sudo apt-get install git
 CUDA Version Requirement
 You must install a CUDA version that is compatible with your GPU and PyTorch version.
 Use the official NVIDIA CUDA archive to find the correct version for your system:
+Use the official NVIDIA CUDA archive to find the correct version for your system, in our case we are using the version 12.30:
 https://developer.nvidia.com/cuda-toolkit-archive
+https://developer.nvidia.com/cuda-12-3-0-download-archive
+To install the right 12.3.0 version for your Linux system, type in `hostnamectl` in your terminal
+
+```
+Static hostname: sup2
+       Icon name: computer-vm
+         Chassis: vm 🖴
+      Machine ID: da429e9cb1674e7a8911ea9304f2eb09
+         Boot ID: 997fe699749643148736a6a88de11bf6
+  Virtualization: google
+Operating System: Debian GNU/Linux 12 (bookworm)  
+          Kernel: Linux 6.1.0-42-cloud-amd64
+    Architecture: x86-64
+ Hardware Vendor: Google
+  Hardware Model: Google Compute Engine
+Firmware Version: Google
+```
+
+You would have an output similar to this
+
+Based on these information, i followed these options to choose the right cuda installation for my device
+
+### Installation Success
+![CUDA Installation Diagram](./cuda_installation.png)
 
 After identifying the correct CUDA version:
 
