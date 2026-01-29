@@ -9,23 +9,28 @@ These scripts have been tested to work reliably in a Python virtual environment 
 
 ## System Requirements
 
-Before running the project, ensure the following:
+Before running the project, ensure the following requirements are met:
 
 * Linux-based system (recommended)
 * NVIDIA GPU with CUDA support
 * Python virtual environment (venv)
+* Git Installed
 
-## statement of ensuring that git is has been installed 
-sudo apt-get install git
+### Installing GIT 
+if Git is not already installed, run:
+ `sudo apt-get install git`
 
-CUDA Version Requirement
+### CUDA Version Requirement
 You must install a CUDA version that is compatible with your GPU and PyTorch version.
-Use the official NVIDIA CUDA archive to find the correct version for your system:
-Use the official NVIDIA CUDA archive to find the correct version for your system, in our case we are using the version 12.30:
-https://developer.nvidia.com/cuda-toolkit-archive
-https://developer.nvidia.com/cuda-12-3-0-download-archive
-To install the right 12.3.0 version for your Linux system, type in `hostnamectl` in your terminal
+Use the official NVIDIA CUDA Toolkit Archive to identify the correct version for your system:
+**Note: In this project, we use CUDA version 12.3.0.**
+LINK: https://developer.nvidia.com/cuda-12-3-0-download-archive
 
+#### Identifying Your System Configuration
+
+To determine the correct CUDA installer for your Linux system, run the following command in your terminal:
+`hostnamectl`
+You should see an output similar to the example below:
 ```
 Static hostname: sup2
        Icon name: computer-vm
@@ -41,19 +46,14 @@ Operating System: Debian GNU/Linux 12 (bookworm)
 Firmware Version: Google
 ```
 
-You would have an output similar to this
+#### CUDA Installation Selection
+Based on this information (operating system, architecture, and Linux distribution), select the appropriate CUDA 12.3.0 installer from the NVIDIA website.
+<!-- ![CUDA Installation Diagram](./cuda_installation.png) -->
+<img src="./cuda_installation.png" alt="CUDA Installation Diagram" width="50%">
 
-Based on these information, i followed these options to choose the right cuda installation for my device
-
-### Installation Success
-![CUDA Installation Diagram](./cuda_installation.png)
-
-After identifying the correct CUDA version:
-
-1. Open `setup_functions.sh`
-2. Locate the `cuda_installation` function
-3. Update the CUDA download links to match your system
-
+#### Final Step
+Once you have identified the correct CUDA version and installer:
+* Copy and paste the code in the `cuda_installation.txt` file in the `unsupervised_wav` folder you cloned from GitHub. 
 
 All commands below should be executed from a terminal.
 
