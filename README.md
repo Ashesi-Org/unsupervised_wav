@@ -49,7 +49,7 @@ Firmware Version: Google
 #### CUDA Installation Selection
 Based on this information (operating system, architecture, and Linux distribution), select the appropriate CUDA 12.3.0 installer from the NVIDIA website.
 <!-- ![CUDA Installation Diagram](./cuda_installation.png) -->
-<img src="./cuda_installation.png" alt="CUDA Installation Diagram" width="70%">
+<img src="./cuda_installation.png" alt="CUDA Installation Diagram" width="90%">
 
 #### Final Step
 Once you have identified the correct CUDA version and installer:
